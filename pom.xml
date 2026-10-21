@@ -6,7 +6,7 @@
 
     <groupId>com.marmoush</groupId>
     <artifactId>java-bom</artifactId>
-    <version>27.0.2</version>
+    <version>27.0.3</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -160,6 +160,27 @@
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.8.15</version>
+                    <configuration>
+                        <excludes>
+                            <!-- Excluded Packages -->
+                            <exclude>**/config/**</exclude>
+                            <exclude>**/dto/**</exclude>
+                            <exclude>**/dtos/**</exclude>
+                            <exclude>**/generated/**</exclude>
+                            <exclude>**/exception/**</exclude>
+                            <exclude>**/exceptions/**</exclude>
+                            <exclude>**/error/**</exclude>
+                            <exclude>**/errors/**</exclude>
+                            <exclude>**/testsuite/**</exclude>
+
+                            <!-- Excluded Files -->
+                            <exclude>**/Main.class</exclude>
+                            <exclude>**/Main$*.class</exclude>
+                            <exclude>**/*Application.class</exclude>
+                            <exclude>**/*Exception.class</exclude>
+                            <exclude>**/*Error.class</exclude>
+                        </excludes>
+                    </configuration>
                     <executions>
                         <execution>
                             <id>jacoco-create-exec-files</id>
@@ -366,7 +387,9 @@
                             <execution>
                                 <id>jacoco-report-aggregate</id>
                                 <phase>verify</phase>
-                                <goals><goal>report-aggregate</goal></goals>
+                                <goals>
+                                    <goal>report-aggregate</goal>
+                                </goals>
                             </execution>
                         </executions>
                     </plugin>
