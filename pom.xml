@@ -6,7 +6,7 @@
 
     <groupId>com.marmoush</groupId>
     <artifactId>java-bom</artifactId>
-    <version>27.0.3</version>
+    <version>27.0.4</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -314,21 +314,6 @@
     </build>
 
     <profiles>
-        <profile>
-            <id>publish</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
         <!--======================================================================================== -->
         <!-- Local Sonar Profile   -->
         <!--======================================================================================== -->
@@ -398,12 +383,20 @@
         </profile>
 
         <!--======================================================================================== -->
-        <!-- Maven central publishing Profile   -->
+        <!-- Maven Central publishing: sources + javadoc jars, GPG signing, upload to Central       -->
         <!--======================================================================================== -->
         <profile>
             <id>central</id>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
