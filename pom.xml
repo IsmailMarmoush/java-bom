@@ -6,7 +6,7 @@
 
     <groupId>com.marmoush</groupId>
     <artifactId>java-bom</artifactId>
-    <version>27.0.4</version>
+    <version>27.0.5</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -425,6 +425,7 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>false</autoPublish>
+                            <centralSnapshotsUrl>https://central.sonatype.com/repository/maven-snapshots/</centralSnapshotsUrl>
                         </configuration>
                     </plugin>
                 </plugins>
